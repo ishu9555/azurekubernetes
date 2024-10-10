@@ -43,7 +43,7 @@ jobs:
 
       - name: Comment on the PR if Readme is not upated.
         if: failure() && !cancelled()
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           reactions: eyes
           comment_tag: documentation
@@ -53,7 +53,7 @@ jobs:
 
       - name: Delete Comment on the PR if Readme is upated.
         if: ${{ always() && steps.docs.conclusion == 'success' && !cancelled() }}
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           reactions: eyes
           comment_tag: documentation
